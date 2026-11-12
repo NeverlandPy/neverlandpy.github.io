@@ -71,6 +71,76 @@
       "imagen": "img/p5.jpg",
       "visible": true,
       "agotado": false
+    },
+    {
+      "id": "p6",
+      "nombre": "Adidas Lite Racer beige",
+      "marca": "Adidas",
+      "categoria": "Casual",
+      "precio": null,
+      "imagen": "img/p6.jpg",
+      "visible": true,
+      "agotado": false
+    },
+    {
+      "id": "p7",
+      "nombre": "Lotto negro y blanco",
+      "marca": "Lotto",
+      "categoria": "Running",
+      "precio": null,
+      "imagen": "img/p7.jpg",
+      "visible": true,
+      "agotado": false
+    },
+    {
+      "id": "p8",
+      "nombre": "Vans Old Skool azul marino",
+      "marca": "Vans",
+      "categoria": "Casual",
+      "precio": null,
+      "imagen": "img/p8.jpg",
+      "visible": true,
+      "agotado": false
+    },
+    {
+      "id": "p9",
+      "nombre": "Puma Anzarun Lite gris y rosa",
+      "marca": "Puma",
+      "categoria": "Running",
+      "precio": null,
+      "imagen": "img/p9.jpg",
+      "visible": true,
+      "agotado": false
+    },
+    {
+      "id": "p10",
+      "nombre": "Lotto azul marino",
+      "marca": "Lotto",
+      "categoria": "Running",
+      "precio": null,
+      "imagen": "img/p10.jpg",
+      "visible": true,
+      "agotado": false
+    },
+    {
+      "id": "p11",
+      "nombre": "Adidas VL Court Bold blanco y negro",
+      "marca": "Adidas",
+      "categoria": "Casual",
+      "precio": null,
+      "imagen": "img/p11.jpg",
+      "visible": true,
+      "agotado": false
+    },
+    {
+      "id": "p12",
+      "nombre": "Lotto negro total",
+      "marca": "Lotto",
+      "categoria": "Running",
+      "precio": null,
+      "imagen": "img/p12.jpg",
+      "visible": true,
+      "agotado": false
     }
   ]
 }
