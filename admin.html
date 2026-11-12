@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Panel de Neverland</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat+Brush&family=DM+Sans:wght@400;500;700&display=swap">
+<style>
+:root{--ink:#14110f;--bg:#f7f3ec;--muted:#5b5560;--line:#e5dfd3;--grad:linear-gradient(150deg,#f9c4e8 0%,#d4c6fb 30%,#b5eef6 62%,#eef7a6 100%)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'DM Sans',system-ui,sans-serif;font-size:16px;line-height:1.45;padding-bottom:110px}
+h1,h2,h3,p{margin:0}
+.brush{font-family:'Caveat Brush',cursive;font-weight:400}
+[hidden]{display:none!important}
+.top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;max-width:760px;margin:0 auto;padding:20px 16px 8px}
+.top h1{font-size:40px;line-height:1}
+.top nav{display:flex;gap:8px}
+main{max-width:760px;margin:0 auto;padding:8px 16px}
+.box{background:#fff;border:1px solid var(--line);border-radius:20px;padding:20px;margin-top:16px;display:flex;flex-direction:column;gap:16px}
+.box h2{font-size:20px}
+.hint{color:var(--muted);font-size:14px}
+label{display:flex;flex-direction:column;gap:6px;font-weight:500;font-size:15px}
+input[type=text],input[type=number],input[type=password],input[type=time],textarea{width:100%;min-height:46px;padding:10px 12px;border:1px solid #cfc8bb;border-radius:12px;font:inherit;background:#fff;color:var(--ink)}
+textarea{min-height:70px;resize:vertical}
+.opts{display:flex;flex-direction:column;gap:8px}
+.opt{display:flex;flex-direction:row;align-items:center;gap:10px;min-height:44px;padding:8px 12px;border:1px solid var(--line);border-radius:12px;font-weight:500;cursor:pointer}
+.opt input{width:20px;height:20px;flex:none}
+.days{display:flex;flex-wrap:wrap;gap:8px}
+.day{display:flex;flex-direction:row;align-items:center;gap:6px;min-height:44px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;cursor:pointer}
+.day input{width:18px;height:18px}
+.times{display:flex;flex-wrap:wrap;gap:12px}
+.times label{flex:1 1 140px}
+.pill{display:inline-flex;align-items:center;gap:10px;align-self:flex-start;padding:8px 16px;border-radius:999px;background:var(--bg);border:1px solid var(--line);font-size:15px;font-weight:500}
+.dot{width:10px;height:10px;border-radius:50%;background:#9a948c;flex:none}
+button,.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 18px;border-radius:999px;border:2px solid var(--ink);background:#fff;color:var(--ink);font:inherit;font-weight:700;cursor:pointer;text-decoration:none}
+button.dark{background:var(--ink);color:#fff}
+button.danger{border-color:#b3261e;color:#b3261e}
+button:disabled{opacity:.45;cursor:not-allowed}
+.prod{display:flex;flex-wrap:wrap;gap:16px;padding:16px;border:1px solid var(--line);border-radius:16px}
+.thumb{width:120px;height:120px;border-radius:14px;background:#f1ece4 center/cover no-repeat;border:1px solid var(--line);flex:none}
+.pf{flex:1 1 240px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.two{display:flex;flex-wrap:wrap;gap:12px}
+.two label{flex:1 1 130px}
+.checks{display:flex;flex-wrap:wrap;gap:8px}
+.chk{display:flex;flex-direction:row;align-items:center;gap:8px;min-height:44px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;cursor:pointer}
+.chk input{width:18px;height:18px}
+.acts{display:flex;flex-wrap:wrap;gap:8px}
+.acts button{min-height:40px;padding:8px 14px;font-size:14px}
+.bar{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid var(--line);padding:12px 16px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;max-width:100%}
+.bar span{font-size:14px;color:var(--muted);flex:1 1 200px}
+.bar span.err{color:#b3261e;font-weight:700}
+.bar span.ok{color:#1a7f4b;font-weight:700}
+.login{max-width:520px;margin:0 auto;padding:40px 16px}
+.login h1{font-size:48px;line-height:1}
+details{border:1px solid var(--line);border-radius:12px;padding:10px 14px;font-size:15px}
+details summary{cursor:pointer;font-weight:700}
+details ol{margin:10px 0 0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+code{background:var(--bg);padding:1px 6px;border-radius:6px;font-size:14px}
+.msg{font-size:15px}
+.msg.err{color:#b3261e;font-weight:700}
+</style>
+</head>
+<body>
+
+<section id="login" class="login">
+  <h1 class="brush">Panel de Neverland</h1>
+  <form id="login-form" class="box" autocomplete="off">
+    <p class="hint">Solo vos podés entrar: necesitás tu token personal de GitHub. Queda guardado únicamente en este navegador.</p>
+    <label>Repositorio
+      <input id="repo" type="text" value="NeverlandPy/neverlandpy.github.io" required>
+    </label>
+    <label>Token
+      <input id="token" type="password" placeholder="github_pat_..." required>
+    </label>
+    <button class="dark" type="submit">Entrar</button>
+    <p id="login-msg" class="msg"></p>
+    <details>
+      <summary>¿Cómo creo el token?</summary>
+      <ol>
+        <li>Entrá a <code>github.com/settings/personal-access-tokens/new</code></li>
+        <li>Nombre: <code>Panel Neverland</code>. Vencimiento: el máximo que te deje.</li>
+        <li><b>Resource owner:</b> NeverlandPy.</li>
+        <li><b>Repository access:</b> Only select repositories → <code>neverlandpy.github.io</code>.</li>
+        <li><b>Permissions → Repository permissions → Contents:</b> Read and write.</li>
+        <li>Generate token, copialo y pegalo arriba.</li>
+      </ol>
+    </details>
+  </form>
+</section>
+
+<div id="app" hidden>
+  <header class="top">
+    <h1 class="brush">Panel de Neverland</h1>
+    <nav>
+      <a class="btn" href="index.html" target="_blank" rel="noopener">Ver página</a>
+      <button id="logout" type="button">Salir</button>
+    </nav>
+  </header>
+  <main>
+    <section class="box">
+      <h2>Estado de la tienda</h2>
+      <div class="opts" id="estado-opts">
+        <label class="opt"><input type="radio" name="estado" value="auto"> Automático, según el horario</label>
+        <label class="opt"><input type="radio" name="estado" value="cerrado"> Cerrado ahora</label>
+        <label class="opt"><input type="radio" name="estado" value="abierto"> Abierto ahora</label>
+      </div>
+      <p class="pill"><span class="dot" id="prev-dot"></span><span id="prev-text"></span></p>
+      <label>Aviso arriba de la página (opcional)
+        <input type="text" data-k="tienda.aviso" id="aviso" placeholder="Ej.: Hoy cerramos temprano">
+      </label>
+    </section>
+
+    <section class="box">
+      <h2>Horario</h2>
+      <div class="days" id="days"></div>
+      <div class="times">
+        <label>Abre <input type="time" data-k="tienda.horario.abre" id="abre"></label>
+        <label>Cierra <input type="time" data-k="tienda.horario.cierra" id="cierra"></label>
+      </div>
+    </section>
+
+    <section class="box">
+      <h2>Productos</h2>
+      <p class="hint">Dejá el precio vacío para que diga "Consultar precio". Los cambios se publican al apretar "Guardar cambios".</p>
+      <div id="prods" style="display:flex;flex-direction:column;gap:12px"></div>
+      <button type="button" class="dark" data-act="add">+ Agregar producto</button>
+    </section>
+
+    <section class="box">
+      <h2>Contacto</h2>
+      <label>WhatsApp (solo números, con código de país) <input type="text" inputmode="numeric" data-k="tienda.whatsapp" id="whatsapp"></label>
+      <label>Instagram (sin @) <input type="text" data-k="tienda.instagram" id="instagram"></label>
+      <label>Correo <input type="text" data-k="tienda.email" id="email"></label>
+      <label>Dirección <input type="text" data-k="tienda.direccion" id="direccion"></label>
+      <label>Enlace de Google Maps <input type="text" data-k="tienda.mapa" id="mapa"></label>
+    </section>
+  </main>
+  <div class="bar">
+    <span id="savemsg">Sin cambios</span>
+    <button id="save" class="dark" type="button" data-act="save" disabled>Guardar cambios</button>
+  </div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+  var API = 'https://api.github.com';
+  var DIAS = [['1', 'Lun'], ['2', 'Mar'], ['3', 'Mié'], ['4', 'Jue'], ['5', 'Vie'], ['6', 'Sáb'], ['0', 'Dom']];
+  var NOMBRES = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'];
+  var S = { repo: '', token: '', data: null, sha: null, pending: {}, preview: {}, dirty: false, saving: false };
+
+  function $(s) { return document.querySelector(s); }
+  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+  function lsGet(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+  function lsSet(k, v) { try { if (v == null) localStorage.removeItem(k); else localStorage.setItem(k, v); } catch (e) {} }
+  function toB64(str) { return btoa(unescape(encodeURIComponent(str))); }
+  function fromB64(b) { return decodeURIComponent(escape(atob(String(b).replace(/\s/g, '')))); }
+
+  function gh(path, opts) {
+    opts = opts || {};
+    opts.headers = Object.assign({ Accept: 'application/vnd.github+json', Authorization: 'Bearer ' + S.token, 'X-GitHub-Api-Version': '2022-11-28' }, opts.headers || {});
+    return fetch(API + path, opts).then(function (r) {
+      if (!r.ok) {
+        return r.json().catch(function () { return {}; }).then(function (j) {
+          var e = new Error(j.message || ('Error ' + r.status)); e.status = r.status; throw e;
+        });
+      }
+      return r.json();
+    });
+  }
+
+  function getPath(o, p) { return p.split('.').reduce(function (a, k) { return a == null ? '' : a[k]; }, o); }
+  function setPath(o, p, v) { var ks = p.split('.'), last = ks.pop(); var t = ks.reduce(function (a, k) { if (!a[k]) a[k] = {}; return a[k]; }, o); t[last] = v; }
+
+  /* ---------- estado (vista previa, misma lógica que la página) ---------- */
+  function ahora() {
+    var parts = new Intl.DateTimeFormat('en-US', { timeZone: 'America/Asuncion', weekday: 'short', hour: 'numeric', minute: 'numeric', hourCycle: 'h23' }).formatToParts(new Date());
+    function get(t) { return parts.filter(function (x) { return x.type === t; })[0].value; }
+    return { d: { Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6 }[get('weekday')], m: parseInt(get('hour'), 10) * 60 + parseInt(get('minute'), 10) };
+  }
+  function hm(s) { var p = String(s).split(':'); return (+p[0]) * 60 + (+p[1] || 0); }
+  function fmt(s) { var p = String(s).split(':'); return (+p[0]) + ':' + ('0' + (+p[1] || 0)).slice(-2); }
+  function estado(t) {
+    var h = t.horario || {}, mode = t.estado || 'auto';
+    if (mode === 'cerrado') return { open: false, text: 'Cerrado por el momento' };
+    if (mode === 'abierto') return { open: true, text: 'Abierto ahora' };
+    var dias = h.dias || [], n = ahora(), abre = hm(h.abre || '09:00'), cierra = hm(h.cierra || '19:00'), hoy = dias.indexOf(n.d) > -1;
+    if (hoy && n.m >= abre && n.m < cierra) return { open: true, text: 'Abierto ahora · cierra a las ' + fmt(h.cierra) };
+    if (hoy && n.m < abre) return { open: false, text: 'Cerrado · abre hoy a las ' + fmt(h.abre) };
+    for (var i = 1; i <= 7; i++) { var d = (n.d + i) % 7; if (dias.indexOf(d) > -1) return { open: false, text: 'Cerrado · abre ' + (i === 1 ? 'mañana' : 'el ' + NOMBRES[d]) + ' a las ' + fmt(h.abre) }; }
+    return { open: false, text: 'Cerrado' };
+  }
+  function preview() {
+    var e = estado(S.data.tienda);
+    $('#prev-text').textContent = 'La página dirá: ' + e.text;
+    $('#prev-dot').style.background = e.open ? '#2e9e5b' : '#d64545';
+  }
+
+  /* ---------- render ---------- */
+  function renderStatic() {
+    var t = S.data.tienda;
+    Array.prototype.forEach.call(document.querySelectorAll('input[name=estado]'), function (r) { r.checked = r.value === (t.estado || 'auto'); });
+    Array.prototype.forEach.call(document.querySelectorAll('[data-k]'), function (i) { i.value = getPath(S.data, i.getAttribute('data-k')) || ''; });
+    var dias = (t.horario && t.horario.dias) || [];
+    $('#days').innerHTML = DIAS.map(function (d) {
+      return '<label class="day"><input type="checkbox" data-dia="' + d[0] + '"' + (dias.indexOf(+d[0]) > -1 ? ' checked' : '') + '> ' + d[1] + '</label>';
+    }).join('');
+    preview();
+  }
+
+  function thumbSrc(p) { return S.preview[p.imagen] || p.imagen || ''; }
+
+  function renderProducts() {
+    var ps = S.data.productos;
+    $('#prods').innerHTML = ps.length ? ps.map(function (p, i) {
+      return '<div class="prod">' +
+        '<div class="thumb" style="background-image:' + (thumbSrc(p) ? 'url(\'' + esc(thumbSrc(p)) + '\')' : 'none') + '"></div>' +
+        '<div class="pf">' +
+        '<label>Nombre <input type="text" data-i="' + i + '" data-f="nombre" value="' + esc(p.nombre) + '"></label>' +
+        '<div class="two">' +
+        '<label>Marca <input type="text" data-i="' + i + '" data-f="marca" value="' + esc(p.marca) + '"></label>' +
+        '<label>Categoría <input type="text" data-i="' + i + '" data-f="categoria" value="' + esc(p.categoria) + '"></label>' +
+        '<label>Precio en Gs. <input type="number" min="0" step="1000" inputmode="numeric" placeholder="Consultar" data-i="' + i + '" data-f="precio" value="' + (p.precio == null ? '' : esc(p.precio)) + '"></label>' +
+        '</div>' +
+        '<div class="checks">' +
+        '<label class="chk"><input type="checkbox" data-i="' + i + '" data-f="visible"' + (p.visible !== false ? ' checked' : '') + '> Visible</label>' +
+        '<label class="chk"><input type="checkbox" data-i="' + i + '" data-f="agotado"' + (p.agotado ? ' checked' : '') + '> Agotado</label>' +
+        '</div>' +
+        '<div class="acts">' +
+        '<button type="button" data-act="photo" data-i="' + i + '">' + (p.imagen ? 'Cambiar foto' : 'Elegir foto') + '</button>' +
+        '<button type="button" data-act="up" data-i="' + i + '"' + (i === 0 ? ' disabled' : '') + '>↑ Subir</button>' +
+        '<button type="button" data-act="down" data-i="' + i + '"' + (i === ps.length - 1 ? ' disabled' : '') + '>↓ Bajar</button>' +
+        '<button type="button" class="danger" data-act="del" data-i="' + i + '">Eliminar</button>' +
+        '</div></div></div>';
+    }).join('') : '<p class="hint">Todavía no hay productos.</p>';
+  }
+
+  function msg(text, cls) { var el = $('#savemsg'); el.textContent = text; el.className = cls || ''; }
+  function touch() {
+    S.dirty = true;
+    $('#save').disabled = S.saving;
+    msg('Hay cambios sin guardar');
+    preview();
+  }
+
+  /* ---------- eventos de campos ---------- */
+  function onField(e) {
+    var t = e.target;
+    if (!S.data || !t || !t.getAttribute) return;
+    var k = t.getAttribute('data-k'), f = t.getAttribute('data-f'), dia = t.getAttribute('data-dia');
+    if (k) { setPath(S.data, k, t.value); touch(); }
+    else if (f !== null) {
+      var p = S.data.productos[+t.getAttribute('data-i')];
+      if (!p) return;
+      if (f === 'precio') p.precio = t.value === '' ? null : Math.max(0, parseInt(t.value, 10) || 0);
+      else if (t.type === 'checkbox') p[f] = t.checked;
+      else p[f] = t.value;
+      touch();
+    } else if (dia !== null) {
+      var out = [];
+      Array.prototype.forEach.call(document.querySelectorAll('[data-dia]'), function (c) { if (c.checked) out.push(+c.getAttribute('data-dia')); });
+      S.data.tienda.horario.dias = out; touch();
+    } else if (t.name === 'estado') { S.data.tienda.estado = t.value; touch(); }
+  }
+  document.addEventListener('input', onField);
+  document.addEventListener('change', onField);
+
+  /* ---------- fotos ---------- */
+  function resize(file) {
+    return new Promise(function (res, rej) {
+      var fr = new FileReader();
+      fr.onload = function () {
+        var im = new Image();
+        im.onload = function () {
+          var m = 900, k = Math.min(1, m / Math.max(im.width, im.height)), c = document.createElement('canvas');
+          c.width = Math.round(im.width * k); c.height = Math.round(im.height * k);
+          var x = c.getContext('2d'); x.fillStyle = '#fff'; x.fillRect(0, 0, c.width, c.height); x.drawImage(im, 0, 0, c.width, c.height);
+          res(c.toDataURL('image/jpeg', 0.85));
+        };
+        im.onerror = function () { rej(new Error('No se pudo leer la imagen')); };
+        im.src = fr.result;
+      };
+      fr.onerror = function () { rej(new Error('No se pudo leer el archivo')); };
+      fr.readAsDataURL(file);
+    });
+  }
+  function pickPhoto(i) {
+    var inp = document.createElement('input'); inp.type = 'file'; inp.accept = 'image/*';
+    inp.onchange = function () {
+      var f = inp.files && inp.files[0]; if (!f) return;
+      resize(f).then(function (url) {
+        var p = S.data.productos[i], path = 'img/' + p.id + '-' + Date.now().toString(36) + '.jpg';
+        S.pending[path] = url.split(',')[1]; S.preview[path] = url; p.imagen = path;
+        renderProducts(); touch();
+      }).catch(function (err) { msg(err.message, 'err'); });
+    };
+    inp.click();
+  }
+
+  /* ---------- acciones ---------- */
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest ? e.target.closest('[data-act]') : null;
+    if (!b || !S.data) return;
+    var act = b.getAttribute('data-act'), i = +b.getAttribute('data-i'), ps = S.data.productos;
+    if (act === 'add') {
+      ps.push({ id: 'p' + Date.now().toString(36), nombre: '', marca: '', categoria: '', precio: null, imagen: '', visible: true, agotado: false });
+      renderProducts(); touch();
+      var last = document.querySelector('#prods .prod:last-child input'); if (last) last.focus();
+    } else if (act === 'photo') pickPhoto(i);
+    else if (act === 'up' && i > 0) { ps.splice(i - 1, 0, ps.splice(i, 1)[0]); renderProducts(); touch(); }
+    else if (act === 'down' && i < ps.length - 1) { ps.splice(i + 1, 0, ps.splice(i, 1)[0]); renderProducts(); touch(); }
+    else if (act === 'del') {
+      if (confirm('¿Eliminar "' + (ps[i].nombre || 'este producto') + '"?')) { ps.splice(i, 1); renderProducts(); touch(); }
+    } else if (act === 'save') save();
+  });
+
+  function validate() {
+    var ps = S.data.productos;
+    for (var i = 0; i < ps.length; i++) {
+      if (!String(ps[i].nombre || '').trim()) return 'Falta el nombre de un producto.';
+      if (!ps[i].imagen) return 'Falta la foto de "' + ps[i].nombre + '".';
+    }
+    return '';
+  }
+
+  function putData(retry) {
+    return gh('/repos/' + S.repo + '/contents/data.json', { method: 'PUT', body: JSON.stringify({ message: 'Panel: actualizar contenido', content: toB64(JSON.stringify(S.data, null, 2) + '\n'), sha: S.sha, branch: 'main' }) })
+      .then(function (r) { S.sha = r.content.sha; })
+      .catch(function (err) {
+        if ((err.status === 409 || err.status === 422) && !retry) {
+          return gh('/repos/' + S.repo + '/contents/data.json?ref=main&t=' + Date.now()).then(function (f) { S.sha = f.sha; return putData(true); });
+        }
+        throw err;
+      });
+  }
+
+  function save() {
+    if (S.saving) return;
+    var bad = validate(); if (bad) { msg(bad, 'err'); return; }
+    S.saving = true; $('#save').disabled = true; msg('Guardando…');
+    var chain = Promise.resolve();
+    Object.keys(S.pending).forEach(function (path) {
+      chain = chain.then(function () {
+        return gh('/repos/' + S.repo + '/contents/' + path, { method: 'PUT', body: JSON.stringify({ message: 'Panel: agregar imagen', content: S.pending[path], branch: 'main' }) })
+          .then(function () { delete S.pending[path]; });
+      });
+    });
+    chain.then(function () { return putData(false); }).then(function () {
+      S.saving = false; S.dirty = false; $('#save').disabled = true;
+      msg('Guardado. Se verá en la página en 1 o 2 minutos.', 'ok');
+    }).catch(function (err) {
+      S.saving = false; $('#save').disabled = false;
+      msg(err.status === 401 ? 'El token venció o no es válido. Salí y volvé a entrar.' : 'No se pudo guardar: ' + err.message, 'err');
+    });
+  }
+
+  window.addEventListener('beforeunload', function (e) { if (S.dirty) { e.preventDefault(); e.returnValue = ''; } });
+
+  /* ---------- login ---------- */
+  function enter() {
+    $('#login-msg').textContent = 'Conectando…'; $('#login-msg').className = 'msg';
+    gh('/repos/' + S.repo + '/contents/data.json?ref=main&t=' + Date.now()).then(function (f) {
+      S.sha = f.sha; S.data = JSON.parse(fromB64(f.content));
+      S.data.tienda = S.data.tienda || {}; S.data.tienda.horario = S.data.tienda.horario || { dias: [], abre: '09:00', cierra: '19:00' };
+      S.data.productos = S.data.productos || [];
+      lsSet('nl_repo', S.repo); lsSet('nl_token', S.token);
+      $('#login').hidden = true; $('#app').hidden = false;
+      renderStatic(); renderProducts(); msg('Sin cambios'); $('#save').disabled = true;
+    }).catch(function (err) {
+      $('#login-msg').className = 'msg err';
+      $('#login-msg').textContent = err.status === 401 ? 'El token no es válido o venció.' : err.status === 404 ? 'No se encontró el repositorio, o el token no tiene acceso a él.' : 'No se pudo entrar: ' + err.message;
+      if (err.status === 401) lsSet('nl_token', null);
+    });
+  }
+  $('#login-form').addEventListener('submit', function (e) {
+    e.preventDefault(); S.repo = $('#repo').value.trim(); S.token = $('#token').value.trim(); enter();
+  });
+  $('#logout').addEventListener('click', function () {
+    if (S.dirty && !confirm('Hay cambios sin guardar. ¿Salir igual?')) return;
+    S.dirty = false; lsSet('nl_token', null); location.reload();
+  });
+  setInterval(function () { if (S.data) preview(); }, 60000);
+
+  var r0 = lsGet('nl_repo'), t0 = lsGet('nl_token');
+  if (r0) $('#repo').value = r0;
+  if (r0 && t0) { S.repo = r0; S.token = t0; enter(); }
+})();
+</script>
+</body>
+</html>

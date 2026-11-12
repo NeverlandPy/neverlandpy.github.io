@@ -1,0 +1,20 @@
+{
+  "tienda": {
+    "nombre": "Neverland",
+    "estado": "cerrado",
+    "aviso": "Por el momento estamos cerrados.",
+    "horario": { "dias": [1, 2, 3, 4, 5, 6], "abre": "09:00", "cierra": "19:00" },
+    "whatsapp": "595971392526",
+    "instagram": "neverland_py",
+    "email": "neverlandmaos@gmail.com",
+    "direccion": "Av. Cacique Lambaré, entre Ecuador y Jorge Paredes Cabello",
+    "mapa": "https://www.google.com/maps/search/?api=1&query=-25.3379464,-57.5874486"
+  },
+  "productos": [
+    { "id": "p1", "nombre": "Nike coral y blanco", "marca": "Nike", "categoria": "Running", "precio": null, "imagen": "img/p1.jpg", "visible": true, "agotado": false },
+    { "id": "p2", "nombre": "Under Armour rosa neón", "marca": "Under Armour", "categoria": "Running", "precio": null, "imagen": "img/p2.jpg", "visible": true, "agotado": false },
+    { "id": "p3", "nombre": "Nike blanco y naranja", "marca": "Nike", "categoria": "Running", "precio": null, "imagen": "img/p3.jpg", "visible": true, "agotado": false },
+    { "id": "p4", "nombre": "Under Armour negro total", "marca": "Under Armour", "categoria": "Casual", "precio": null, "imagen": "img/p4.jpg", "visible": true, "agotado": false },
+    { "id": "p5", "nombre": "Nike negro y blanco", "marca": "Nike", "categoria": "Running", "precio": null, "imagen": "img/p5.jpg", "visible": true, "agotado": false }
+  ]
+}
