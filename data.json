@@ -24,7 +24,7 @@
   "productos": [
     {
       "id": "p1",
-      "nombre": "Nike coral y blanco",
+      "nombre": "Nike Journey Run",
       "marca": "Nike",
       "categoria": "Running",
       "precio": null,
@@ -34,7 +34,7 @@
     },
     {
       "id": "p2",
-      "nombre": "Under Armour rosa neón",
+      "nombre": "Under Armour Charged Assert 10",
       "marca": "Under Armour",
       "categoria": "Running",
       "precio": null,
@@ -44,7 +44,7 @@
     },
     {
       "id": "p3",
-      "nombre": "Nike blanco y naranja",
+      "nombre": "Nike Comfi Ride",
       "marca": "Nike",
       "categoria": "Running",
       "precio": null,
@@ -54,7 +54,7 @@
     },
     {
       "id": "p4",
-      "nombre": "Under Armour negro total",
+      "nombre": "Under Armour Charged Assert 10",
       "marca": "Under Armour",
       "categoria": "Casual",
       "precio": null,
@@ -64,7 +64,7 @@
     },
     {
       "id": "p5",
-      "nombre": "Nike negro y blanco",
+      "nombre": "Nike Winflo",
       "marca": "Nike",
       "categoria": "Running",
       "precio": null,
